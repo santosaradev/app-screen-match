@@ -1,11 +1,15 @@
 public class ScreenMatchApp {
     public static void main(String[] args) {
-        Movie movie = new Movie();
+        Movie movie = new Movie("The GodFather", 1972, 177, true);
 
-        movie.name = "The GodFather";
-        movie.year = 1972;
-        movie.duration = 177;
-        movie.included = true;
-        movie.rating = 8.1;
+        movie.showTechnicSlip();
+
+        movie.getRatings().add(8);
+        movie.getRatings().add(5);
+        movie.getRatings().add(10);
+
+        double meanResult = movie.calculateMean(movie.getRatings());
+
+        System.out.println("Média: " + meanResult);
     }
 }
