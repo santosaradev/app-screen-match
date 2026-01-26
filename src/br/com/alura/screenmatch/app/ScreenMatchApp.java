@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.app;
+
 import br.com.alura.screenmatch.model.Movie;
 import br.com.alura.screenmatch.model.Serie;
 
@@ -24,8 +26,9 @@ public class ScreenMatchApp {
         serie.setSeason(6);
         serie.setEpisode(121);
         serie.setMinutesEpisode(40);
-        serie.getDuration();
+        serie.getDurationMinutes();
 
         serie.showTechnicSlip();
+
     }
 }
