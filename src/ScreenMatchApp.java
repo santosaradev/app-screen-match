@@ -1,8 +1,11 @@
 import br.com.alura.screenmatch.model.Movie;
+import br.com.alura.screenmatch.model.Serie;
 
 public class ScreenMatchApp {
     public static void main(String[] args) {
         Movie movie = new Movie("The GodFather", 1972, 177, true);
+
+        System.out.println("Ficha técnica do filme");
 
         movie.showTechnicSlip();
 
@@ -12,6 +15,17 @@ public class ScreenMatchApp {
 
         double meanResult = movie.calculateMean(movie.getRatings());
 
-        System.out.println("Média: " + meanResult);
+        System.out.println(String.format("Média: %.1f", meanResult) + "\n");
+
+        Serie serie = new Serie("Lost", 2004, 0,false );
+
+        System.out.println("Ficha técnica da série");
+
+        serie.setSeason(6);
+        serie.setEpisode(121);
+        serie.setMinutesEpisode(40);
+        serie.getDuration();
+
+        serie.showTechnicSlip();
     }
 }
