@@ -1,6 +1,8 @@
 package br.com.alura.screenmatch.model;
 
-public class Serie extends Title{
+import br.com.alura.screenmatch.interfaces.Classifiable;
+
+public class Serie extends Title implements Classifiable {
     private int season;
     private int episode;
     private boolean active;
@@ -43,7 +45,7 @@ public class Serie extends Title{
     }
 
     @Override
-    public int getDuration() {
+    public int getDurationMinutes() {
         return season * episode * minutesEpisode;
     }
 
@@ -53,5 +55,10 @@ public class Serie extends Title{
         System.out.println("Temporadas: " + season);
         System.out.println("Episódios: " + episode);
         System.out.println("Minutos por episódio: " + minutesEpisode);
+    }
+
+    @Override
+    public int getRating() {
+        return 0;
     }
 }
