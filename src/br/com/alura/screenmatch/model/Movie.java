@@ -5,8 +5,8 @@ import br.com.alura.screenmatch.interfaces.Classifiable;
 public class Movie extends Title implements Classifiable {
     private String director;
 
-    public Movie(String name, int year, int duration, boolean included) {
-        super(name, year, duration, included);
+    public Movie(String name, int year) {
+        super(name, year);
     }
 
     public String getDirector() {
@@ -20,5 +20,11 @@ public class Movie extends Title implements Classifiable {
     @Override
     public int getRating() {
         return (int) calculateMean(getRatings()) / 2;
+    }
+
+    @Override
+    public void showTechnicSlip() {
+        super.showTechnicSlip();
+        System.out.println("Diretor: " + director);
     }
 }

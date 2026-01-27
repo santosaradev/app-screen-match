@@ -10,11 +10,9 @@ public class Title {
     private boolean included;
     private List<Integer> ratings = new ArrayList<Integer>();
 
-    public Title (String name, int year, int duration, boolean included){
+    public Title (String name, int year){
         this.name = name;
         this.year = year;
-        this.durationMinutes = duration;
-        this.included = included;
     }
 
     public String getName() {

@@ -8,8 +8,8 @@ public class Serie extends Title implements Classifiable {
     private boolean active;
     private int minutesEpisode;
 
-    public Serie(String name, int year, int duration, boolean included) {
-        super(name, year, duration, included);
+    public Serie(String name, int year) {
+        super(name, year);
     }
 
     public int getSeason() {
