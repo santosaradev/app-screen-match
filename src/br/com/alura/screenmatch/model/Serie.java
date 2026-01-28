@@ -1,8 +1,6 @@
 package br.com.alura.screenmatch.model;
 
-import br.com.alura.screenmatch.interfaces.Classifiable;
-
-public class Serie extends Title implements Classifiable {
+public class Serie extends Title {
     private int season;
     private int episode;
     private boolean active;
@@ -50,15 +48,7 @@ public class Serie extends Title implements Classifiable {
     }
 
     @Override
-    public void showTechnicSlip() {
-        super.showTechnicSlip();
-        System.out.println("Temporadas: " + season);
-        System.out.println("Episódios: " + episode);
-        System.out.println("Minutos por episódio: " + minutesEpisode);
-    }
-
-    @Override
-    public int getRating() {
-        return 0;
+    protected String getType() {
+        return "Série: ";
     }
 }
