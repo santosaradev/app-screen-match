@@ -1,14 +1,15 @@
 package br.com.alura.screenmatch.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.alura.screenmatch.interfaces.Classifiable;
 
-public class Title {
-    private String name;
-    private int year;
+public abstract  class Title implements Classifiable, Comparable<Title> {
+    private final String name;
+    private final int year;
     private int durationMinutes;
     private boolean included;
-    private List<Integer> ratings = new ArrayList<Integer>();
+    private int sumRatings;
+    private int totalRatings;
+    protected abstract String getType();
 
     public Title (String name, int year){
         this.name = name;
@@ -27,14 +28,6 @@ public class Title {
         return durationMinutes;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public void setDurationMinutes(int durationMinutes) {
         this.durationMinutes = durationMinutes;
     }
@@ -43,18 +36,43 @@ public class Title {
         this.included = included;
     }
 
-    public List<Integer> getRatings() {
-        return ratings;
+    public int getSumRatings() {
+        return sumRatings;
     }
 
-    public void showTechnicSlip(){
-        System.out.println("Nome: " + name);
-        System.out.println("Ano: " + year);
-        System.out.println(String.format("Duração: %d minutos", getDurationMinutes()));
-        System.out.println("Incluído no plano: " + included);
+    public boolean isIncluded() {
+        return included;
     }
 
-    public double calculateMean(List <Integer> ratings){
-        return ratings.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+    public int getTotalRatings() {
+        return totalRatings;
+    }
+
+    public String getTechnicSlip(){
+        return "Nome: " + this.name + "\nAno: " + this.year;
+    }
+
+    public void rate(double rating){
+        sumRatings += (int) rating;
+        totalRatings++;
+    }
+
+    public double calculateMean(){
+        return (double) sumRatings / totalRatings;
+    }
+
+    @Override
+    public int getRating() {
+        return (int) calculateMean() / 2;
+    }
+
+    @Override
+    public String toString() {
+        return getType() + this.name + "(" + this.year + ")";
+    }
+
+    @Override
+    public int compareTo(Title title) {
+        return this.name.compareTo(title.getName());
     }
 }
