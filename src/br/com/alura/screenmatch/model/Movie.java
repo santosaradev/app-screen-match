@@ -1,8 +1,6 @@
 package br.com.alura.screenmatch.model;
 
-import br.com.alura.screenmatch.interfaces.Classifiable;
-
-public class Movie extends Title implements Classifiable {
+public class Movie extends Title {
     private String director;
 
     public Movie(String name, int year) {
@@ -18,13 +16,8 @@ public class Movie extends Title implements Classifiable {
     }
 
     @Override
-    public int getRating() {
-        return (int) calculateMean(getRatings()) / 2;
+    protected String getType() {
+        return "Filme: ";
     }
 
-    @Override
-    public void showTechnicSlip() {
-        super.showTechnicSlip();
-        System.out.println("Diretor: " + director);
-    }
 }
