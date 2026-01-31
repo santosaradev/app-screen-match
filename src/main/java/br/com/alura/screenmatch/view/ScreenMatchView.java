@@ -12,11 +12,8 @@ public class ScreenMatchView {
 
     public void start() throws IOException, InterruptedException {
         System.out.println("Digite o filme: ");
-        String title = scanner.nextLine();
+        var title = scanner.nextLine();
 
-        TitleOmdb titleOmdb = controller.getTitle(title);
-
-        System.out.println(titleOmdb.title());
-        System.out.println(titleOmdb.year());
+        controller.saveData(title);
     }
 }
